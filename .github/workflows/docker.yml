@@ -83,7 +83,6 @@ jobs:
             device: rocm
             suffixes: '-rocm'
             platforms: linux/amd64
-            runner-mapping: '{"linux/amd64": "pokedex-large"}'
     steps:
       - name: Login to GitHub Container Registry
         uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
@@ -148,7 +147,6 @@ jobs:
       context: machine-learning
       dockerfile: machine-learning/Dockerfile
       platforms: ${{ matrix.platforms }}
-      runner-mapping: ${{ matrix.runner-mapping }}
       suffixes: ${{ matrix.suffixes }}
       tags: &tag-rules |
         type=ref,event=branch
